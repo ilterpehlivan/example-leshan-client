@@ -63,7 +63,7 @@ public class LeshanClientDemo {
 
   private static MyLocation locationInstance;
 
-  public static void main(final String[] args) {
+  public static void main(final String[] args) throws InterruptedException {
 
     // Define options for command line tools
     Options options = new Options();
@@ -253,7 +253,7 @@ public class LeshanClientDemo {
       byte[] pskKey,
       Float latitude,
       Float longitude,
-      float scaleFactor) {
+      float scaleFactor) throws InterruptedException {
 
     locationInstance = new MyLocation(latitude, longitude, scaleFactor);
 
@@ -330,12 +330,14 @@ public class LeshanClientDemo {
               }
             });
 
+    Thread.currentThread().join();
+
     // Change the location through the Console
-    try (Scanner scanner = new Scanner(System.in)) {
-      while (scanner.hasNext()) {
-        String nextMove = scanner.next();
-        locationInstance.moveLocation(nextMove);
-      }
-    }
+//    try (Scanner scanner = new Scanner(System.in)) {
+//      while (scanner.hasNext()) {
+//        String nextMove = scanner.next();
+//        locationInstance.moveLocation(nextMove);
+//      }
+//    }
   }
 }

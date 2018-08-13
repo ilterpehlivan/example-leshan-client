@@ -56,7 +56,7 @@ public class PolySenseSensor extends BaseInstanceEnabler {
     int y = rng.nextInt(2000) - 2000;
     int z = rng.nextInt(2000);
 
-    this.value = new StringBuilder().append(x).append(";").append(y).append(";").append(z).toString();
+    this.value = new StringBuilder().append(x).append(",").append(y).append(",").append(z).toString();
 
     return this.value;
   }
